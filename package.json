@@ -1,0 +1,20 @@
+{
+  "name": "sql-detective",
+  "version": "2.0.1",
+  "description": "SQL Detective 2.0: estación de investigación Lumen OS para aprender SQL resolviendo misterios, con SQLite real en el navegador.",
+  "private": true,
+  "scripts": {
+    "start": "node scripts/serve.js",
+    "build": "node scripts/build-standalone.js",
+    "export-db": "node scripts/export-db.js",
+    "test": "node tests/playthrough.test.js"
+  },
+  "devDependencies": {
+    "playwright": "^1.47.0",
+    "sql.js": "1.10.3"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "UNLICENSED"
+}

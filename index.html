@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SQL Detective 2.0 — Lumen OS · Caso 001</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23e0b25c%22 stroke-width=%222%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%229%22/%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%223.5%22/%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="css/os.css">
+</head>
+<body>
+<div id="loading"><div class="spin"></div><div>Encendiendo Lumen OS…</div></div>
+
+<!-- ARRANQUE -->
+<div id="boot" class="screen" aria-live="polite"><div class="boot-in"><div class="boot-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.5"/><path d="M12 3v4M12 17v4"/></svg>LUMEN OS</div><div id="bootLines"></div><div class="boot-skip">Pulsa cualquier tecla para continuar</div></div></div>
+
+<!-- INICIO DE SESIÓN -->
+<div id="login" class="screen">
+  <div id="loginBg" class="photo-bg"></div><div class="login-shade"></div>
+  <div class="login-top"><span>LUMEN OS 4.2 · ESTACIÓN DE INVESTIGACIÓN</span><span><span>SÁB 15 MAR 2026</span> · <span data-clock></span> · LIMA</span></div>
+  <form id="loginForm" class="login-card" autocomplete="off">
+    <div class="login-brand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.5"/><path d="M12 3v4M12 17v4"/></svg><div><b>AGENCIA LUMEN</b><span>Investigación Digital · Lima</span></div></div>
+    <h1>Bienvenido, detective</h1>
+    <p class="muted">Tienes un caso asignado. Inicia sesión para abrir tu estación de trabajo.</p>
+    <label for="agentName">Nombre del agente</label>
+    <input id="agentName" maxlength="24" placeholder="Escribe tu nombre (opcional)">
+    <button class="btn gold big" id="loginBtn" type="submit">Iniciar sesión</button>
+    <button class="btn ghost small" id="loginFull" type="button">Pantalla completa (recomendado)</button>
+    <div class="login-status"><i></i><span id="loginStatus"></span></div>
+  </form>
+  <div class="login-case"><div id="loginCase" class="lc-img"></div><div class="lc-tx"><span>EXPEDIENTE 001 · CONFIDENCIAL</span><b>El misterio del estudiante desaparecido</b><em>Colegio Santa Aurora · 14/03/2026 · 23:12</em></div></div>
+</div>
+
+<!-- CINEMÁTICAS -->
+<div id="cine" class="screen" role="dialog" aria-label="Escena">
+  <div id="cineBg" class="photo-bg"></div><div class="cine-shade"></div>
+  <div id="cineScene" class="cine-scene"></div>
+  <div id="cinePortrait" class="cine-portrait"></div>
+  <div class="cine-box"><div id="cineLine" class="cine-line"></div>
+    <div class="cine-ctrl"><div id="cineDots" class="dots"></div><div class="btnrow"><button class="btn ghost small" id="cineSkip">Saltar</button><button class="btn gold" id="cineNext">Continuar</button></div></div></div>
+</div>
+
+<!-- ESCRITORIO -->
+<div id="os" class="screen">
+  <div id="wallpaper" class="photo-bg"></div><div class="wall-shade"></div>
+  <nav id="deskIcons" aria-label="Aplicaciones del escritorio"></nav>
+  <div id="windows"></div>
+  <div id="snapGhost"></div>
+  <div id="notifs" aria-live="polite"></div>
+  <div id="start" role="menu" aria-label="Menú de inicio">
+    <div id="startUser" class="start-user"></div>
+    <div id="startApps" class="start-apps"></div>
+    <div class="start-foot">
+      <button id="startStudy"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="4" width="7" height="16" rx="1"/><rect x="12" y="4" width="9" height="7" rx="1"/><rect x="12" y="13" width="9" height="7" rx="1"/></svg>Modo estudio</button>
+      <button id="startFull"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>Pantalla completa</button>
+      <button id="startLogout"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M10 4H5v16h5"/><path d="M14 8l4 4-4 4M18 12H9"/></svg>Cerrar sesión</button>
+      <button id="startReset" class="danger-t"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 12a8 8 0 1 0 3-6.2"/><path d="M4 4v5h5"/></svg>Reiniciar progreso</button>
+    </div>
+  </div>
+  <div id="orgMenu" role="menu" aria-label="Organizar ventanas">
+    <button data-lay="study"><b>Modo estudio</b><span>Misión · Terminal · Base de datos · Evidencias</span><kbd>Alt+Shift+E</kbd></button>
+    <button data-lay="focus"><b>Foco en la terminal</b><span>Terminal grande y la misión al lado</span><kbd>Alt+Shift+F</kbd></button>
+    <button data-lay="free"><b>Investigación libre</b><span>Ventanas en cascada</span><kbd>Alt+Shift+L</kbd></button>
+  </div>
+  <footer id="taskbar">
+    <button id="tbStart" class="tb-start" aria-label="Menú de inicio" aria-haspopup="menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.5"/><path d="M12 3v4M12 17v4"/></svg><span>Lumen</span></button>
+    <div id="tbApps" class="tb-apps"></div>
+    <div class="tb-right">
+      <button id="tbOrg" class="tb-org" aria-haspopup="menu" aria-expanded="false"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="4" width="7" height="16" rx="1"/><rect x="12" y="4" width="9" height="7" rx="1"/><rect x="12" y="13" width="9" height="7" rx="1"/></svg><span>Organizar</span></button>
+      <button id="tbCase" class="tb-chip" title="Modo estudio"></button>
+      <button id="tbRank" class="tb-chip gold" title="Perfil del agente"></button>
+      <button id="tbSound" class="tb-ic"></button>
+      <button id="tbFull" class="tb-ic" aria-label="Pantalla completa"></button>
+      <span class="tb-clock"><span data-clock></span><small>15/03/2026</small></span>
+    </div>
+  </footer>
+</div>
+
+<div id="modal" class="modal"><div id="modalBox" class="mbox" role="dialog" aria-modal="true"></div></div>
+<canvas id="fx" aria-hidden="true"></canvas>
+
+<!-- Motor SQLite (sql.js, versión JavaScript pura: funciona incluso abriendo el archivo con doble clic) -->
+<script src="vendor/sql-asm.js"></script>
+<script src="js/data.js"></script>
+<script src="js/assets.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/story.js"></script>
+<script src="js/os.js"></script>
+<script src="js/apps.js"></script>
+<script src="js/game.js"></script>
+</body>
+</html>
